@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\StripeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [StripeController::class, 'index']);
+Route::get('/vue', [StripeController::class, 'vue']);
+Route::post('/payment', [StripeController::class, 'payment']);
